@@ -77,8 +77,13 @@ public class WebSecurityConfig {
                 .requestMatchers("consulting/registration").permitAll()
                 .requestMatchers("/course/registrationn").permitAll()
                 .requestMatchers("course/registrationn").permitAll()
-//                .requestMatchers("/course/information").permitAll()
-//                .requestMatchers("course/information").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/paymentVNPAY/vn-pay-callback/**").permitAll()
+                .requestMatchers(HttpMethod.POST, "/api/paymentVNPAY/vn-pay").permitAll()
+                .requestMatchers("/order/**").permitAll()
+                .requestMatchers(HttpMethod.POST, "/order/{orderId}/update-status").authenticated()
+                .requestMatchers("/classRoom/**").permitAll()
+                .requestMatchers("/document/**").permitAll()
+                .requestMatchers("/class-user/**").permitAll()
                 .requestMatchers(request -> {
                     if (request.getMethod().equals(HttpMethod.GET.toString())) {
                         return new RegexRequestMatcher("/(document|news|admissions|slide|service|display|exam/schedule|...)/(all|\\d+)", null).matches(request);

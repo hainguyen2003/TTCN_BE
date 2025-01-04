@@ -16,6 +16,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 public class DocumentDTO {
     private Long id;
+    private Long idService;
     private String name;
     private String content;
     private String file;

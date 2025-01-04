@@ -1,17 +1,13 @@
 package com.example.ttcn2etest.model.etity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
-import java.math.BigDecimal;
 import java.time.Instant;
 
 @Data
@@ -19,32 +15,28 @@ import java.time.Instant;
 @NoArgsConstructor
 @Entity
 @Builder
-//@Table(name = "`order`", schema = "edustar")
-@Table(name = "`order`")
+@Table(name = "`order`", schema = "edustar")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @NotNull
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    @Size(max = 20)
+    @Column(name = "order_id", nullable = false, length = 20)
+    private String orderId;
+
+
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private Long userId;
 
-    @NotNull
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "service_manager_id", nullable = false)
-    private Service serviceManager;
+    private Long serviceManagerId;
 
-    @NotNull
-    @Column(name = "amount", nullable = false, precision = 10, scale = 2)
-    private BigDecimal amount;
+    @Column(name = "amount", nullable = false, length = 100)
+    private String amount;
 
     @Size(max = 50)
-    @NotNull
     @Column(name = "payment_method", nullable = false, length = 50)
     private String paymentMethod;
 
@@ -59,5 +51,20 @@ public class Order {
 
     @Column(name = "updated_at")
     private Instant updatedAt;
+
+    @Column(name = "image")
+    private String image;
+
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "full_name")
+    private String fullName;
+
+    @Column(name = "phone")
+    private String phone;
+
+    @Column(name = "address")
+    private String address;
 
 }

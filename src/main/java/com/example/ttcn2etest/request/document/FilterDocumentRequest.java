@@ -1,6 +1,5 @@
 package com.example.ttcn2etest.request.document;
 
-import com.example.ttcn2etest.model.etity.ConsultingRegistration;
 import com.example.ttcn2etest.model.etity.Document;
 import com.example.ttcn2etest.validator.DateValidateAnnotation;
 import jakarta.validation.constraints.NotNull;

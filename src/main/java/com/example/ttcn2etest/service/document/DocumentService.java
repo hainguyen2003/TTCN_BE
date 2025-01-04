@@ -15,6 +15,8 @@ public interface DocumentService {
 
     DocumentDTO getByIdDocument(Long id);
 
+    List<Document> getDocumentsByServiceId(Long idService);
+
     DocumentDTO createDocument(CreateDocumentRequest request);
 
     DocumentDTO updateDocument(UpdateDocumentRequest request, Long id);

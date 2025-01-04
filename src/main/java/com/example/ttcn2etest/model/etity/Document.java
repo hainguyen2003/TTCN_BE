@@ -21,6 +21,8 @@ public class Document {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private Long idService;
     @NotBlank
     @Size(max = 200)
     private String name;
