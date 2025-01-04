@@ -1,0 +1,1 @@
+java -jar ttcn2ETest-0.0.1-SNAPSHOT.jar --spring.config.location=file:application.properties -Xms512m -Xmx1000m
